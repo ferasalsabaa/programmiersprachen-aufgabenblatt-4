@@ -16,6 +16,51 @@ template <typename T>
 class ListIterator
 {
 public:
+using Self = ListIterator<T>;
+using value_type = T;
+using pointer = T*;
+using reference = T&;
+using difference_type = ptrdiff_t;
+using iterator_category = std::bidirectional_iterator_tag;
+
+ListIterator() : node{nullptr}
+{}         // not implemented yet ; initialisierlist ?
+ListIterator (ListNode <T>* n) : node{n}
+{} // not implemented yet ; initialiserlist ?
+reference operator*() const
+ {
+     return &this;
+ } // not implemented yet
+pointer operator->() const 
+{
+    return *this;
+} // not implemented yet
+Self& operator++() 
+{
+    node = node->next;
+    return *this;
+} // not implemented yet
+Self operator++(int) 
+{
+    Self result = *this;
+    ++(*this);
+    return result;
+} // not implemented yet
+bool operator==(Self const& x) const
+ {
+     return *this == x;
+ } // not implemented yet
+bool operator!=(Self const& x) const
+ {
+     return *this != x;
+ } // not implemented yet
+Self next () const
+{
+if ( node )
+return ListIterator ( node -> next );
+else
+return ListIterator ( nullptr );
+}
 // not implemented yet
 // do not forget about the initialiser lists !
 private:
@@ -44,6 +89,10 @@ using const_iterator  = ListConstIterator <T>;
 
 List() :  size_{0} , first_{nullptr} , last_{nullptr}
 {}
+~List()
+{
+    clear();
+}
 bool empty () const 
 {
   return size_==0;
@@ -125,6 +174,15 @@ void pop_back()
         last_->next=nullptr;
         --size_;
     }
+}
+void clear()
+{
+    
+        while(first_!=nullptr && last_!=nullptr)
+        {
+            pop_back();
+        }
+    
 }
 
 // not implemented yet
