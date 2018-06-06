@@ -29,16 +29,19 @@ ListIterator (ListNode <T>* n) : node{n}
 {} // not implemented yet ; initialiserlist ?
 reference operator*() const
  {
-     return &this;
+     return node->value;   //value
  } // not implemented yet
+ 
 pointer operator->() const 
 {
-    return *this;
+    return &(node->value);    //adresse
 } // not implemented yet
+
+
 Self& operator++() 
 {
     node = node->next;
-    return *this;
+    return *this;  //iterator von node
 } // not implemented yet
 Self operator++(int) 
 {
@@ -48,11 +51,11 @@ Self operator++(int)
 } // not implemented yet
 bool operator==(Self const& x) const
  {
-     return *this == x;
+     return node == x.getnode();
  } // not implemented yet
 bool operator!=(Self const& x) const
  {
-     return *this != x;
+     return node != x.getnode();
  } // not implemented yet
 Self next () const
 {
@@ -61,6 +64,12 @@ return ListIterator ( node -> next );
 else
 return ListIterator ( nullptr );
 }
+ListNode <T>* getnode() const
+{
+    return node;
+} //pointer auf node haben
+
+
 // not implemented yet
 // do not forget about the initialiser lists !
 private:
@@ -184,6 +193,15 @@ void clear()
         }
     
 }
+//4.6
+iterator begin() const
+{
+  return ListIterator<T>(first_);
+}
+iterator end() const
+{
+   return ListIterator<T>();
+}
 
 // not implemented yet
 // do not forget about the initialiser list !
@@ -192,6 +210,53 @@ std::size_t size_;
 ListNode <T>* first_;
 ListNode <T>* last_;
 };
+
+template <typename T>
+bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode mussen .. 
+{    bool result=true;
+     if(xs.size()==ys.size())
+     {
+        auto x = xs.begin();
+        auto y = ys.begin();
+        for(unsigned int i=0;i<xs.size();++i)
+        {
+            if(*x!=*y)
+            {
+                result = false;
+                break;
+            }
+            ++x;
+            ++y;
+        }
+     }
+
+     return result;
+}
+template <typename T>
+bool operator !=( List <T > const& xs , List <T > const& ys )
+{
+     bool result=true;
+    if (xs.size()==ys.size())
+    {
+      auto x = xs.begin();
+      auto y = ys.begin();
+      for(unsigned int i=0;i<xs.size();i++)
+      {
+        if(*x==*y)
+        {
+            result = false;
+            break;
+        }
+        ++x;
+        ++y;
+      }
+    }
+    else
+    {
+        result=true;
+    }
+    return result;
+}
 #endif // # define BUW_LIST_HPP
 
 

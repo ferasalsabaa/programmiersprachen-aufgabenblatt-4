@@ -3,6 +3,8 @@
 #include <catch.hpp>
 #include <iostream>
 
+#include <vector>
+
 //4.2
 TEST_CASE("testing_list", "[list]")
 {
@@ -61,7 +63,50 @@ list.push_front(4);
 list.clear();
 REQUIRE(list.empty());
 }
+//4.6
+TEST_CASE ("should be an empty range after default construction",
+"[iterators]" )
+{
+List <int> list ;
+auto b = list.begin ();
+auto e = list.end ();
+REQUIRE (b==e);
+}
+TEST_CASE ("provide access to the first element with begin" ,"[iterators]")
+{
+List <int> list ;
+list.push_front(42);
+REQUIRE (42 == *list.begin());
+}
+TEST_CASE ("gleich" ,"[gleich]")
+{
+List <int> list ;
+list.push_front(1);
+list.push_front(5);
+list.push_front(3);
+list.push_front(2);
+List <int> list2 ;
+list2.push_front(1);
+list2.push_front(5);
+list2.push_front(3);
+list2.push_front(2);
+REQUIRE (list==list2);
+//REQUIRE (list!=list2);
+}
 
+
+TEST_CASE ("dereference_operator" ,"[dereference_operator]")
+{
+List <std::vector<int>> list ;
+list.push_front(std::vector<int>());
+
+
+auto list_begin = list.begin();
+
+//REQUIRE (list==list2);
+REQUIRE (0 == (*list_begin).size() );
+REQUIRE (0 == list_begin->size() );
+}
 
 int main(int argc, char *argv[])
 { 
