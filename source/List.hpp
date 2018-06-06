@@ -211,6 +211,11 @@ iterator end() const
 {
    return ListIterator<T>();
 }
+//4.9
+//void insert(int position,ListNode n_node)
+//{
+  // for(auto i.begin())
+//}
 
 // not implemented yet
 // do not forget about the initialiser list !
@@ -244,8 +249,8 @@ bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode muss
 template <typename T>
 bool operator !=( List <T > const& xs , List <T > const& ys )
 {
-    
-     bool result=true;
+    return !(xs==ys);
+   /*  bool result=true;
     if (xs.size()==ys.size())
     {
       auto x = xs.begin();
@@ -266,6 +271,7 @@ bool operator !=( List <T > const& xs , List <T > const& ys )
         result=true;
     }
     return result; 
+    */
 }
 #endif // # define BUW_LIST_HPP
 
