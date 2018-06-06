@@ -94,16 +94,23 @@ REQUIRE (list==list2);
 //REQUIRE (list!=list2);
 }
 
+TEST_CASE ("copyconstructor","[constructor]")
+{
+List <int> list ;
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+List <int> list2 {list};
+REQUIRE (list==list2);
+}
+
 
 TEST_CASE ("dereference_operator" ,"[dereference_operator]")
 {
 List <std::vector<int>> list ;
 list.push_front(std::vector<int>());
-
-
 auto list_begin = list.begin();
-
-//REQUIRE (list==list2);
 REQUIRE (0 == (*list_begin).size() );
 REQUIRE (0 == list_begin->size() );
 }

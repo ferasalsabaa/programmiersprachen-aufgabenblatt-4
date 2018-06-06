@@ -102,6 +102,13 @@ List() :  size_{0} , first_{nullptr} , last_{nullptr}
 {
     clear();
 }
+List (List const& list1) :  size_{0} , first_{nullptr} , last_{nullptr}
+{
+   for(auto i = list1.begin(); i != list1.end(); ++i)
+   {
+       push_back(*i);
+   }
+}
 bool empty () const 
 {
   return size_==0;
@@ -134,8 +141,10 @@ void push_back (T const& wert)
     ListNode <T>* n_node = new ListNode<T>{wert,nullptr,nullptr};
     if(empty()==false)
     {
-      last_->prev=n_node;
-      n_node->next=last_;
+      //last_->prev=n_node;
+      //n_node->next=last_;
+      n_node->prev = last_;
+      last_->next=n_node;
       last_ = n_node;
     }
     else
@@ -235,6 +244,7 @@ bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode muss
 template <typename T>
 bool operator !=( List <T > const& xs , List <T > const& ys )
 {
+    
      bool result=true;
     if (xs.size()==ys.size())
     {
@@ -255,7 +265,7 @@ bool operator !=( List <T > const& xs , List <T > const& ys )
     {
         result=true;
     }
-    return result;
+    return result; 
 }
 #endif // # define BUW_LIST_HPP
 
