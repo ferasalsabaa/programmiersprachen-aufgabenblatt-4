@@ -119,6 +119,13 @@ List (List<T>&& list2) :
    list2.first_=nullptr;
    list2.last_=nullptr;
 }
+List (std::initializer_list<T> const& inlist) :  size_{0} , first_{nullptr} , last_{nullptr}
+{
+   for(auto a : inlist)
+   {
+       push_back(a);
+   }
+}
 bool empty () const 
 {
   return size_==0;

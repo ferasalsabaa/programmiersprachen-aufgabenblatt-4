@@ -2,6 +2,7 @@
 #include "List.hpp"
 #include <catch.hpp>
 #include <iostream>
+#include<initializer_list>
 
 #include <vector>
 //4.2
@@ -183,6 +184,13 @@ REQUIRE (0 == list.size());
 REQUIRE (list.empty());
 REQUIRE (4 == list2.size ());
 }
+
+TEST_CASE ( " init_list_constructor " , " [ init_list_constructor ] " )
+{
+   List <int> int_list{9,6,4,3,7};
+   REQUIRE(9==int_list.front());
+}
+
 
 
 
