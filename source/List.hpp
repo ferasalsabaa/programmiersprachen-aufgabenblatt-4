@@ -1,6 +1,7 @@
 # ifndef BUW_LIST_HPP
 # define BUW_LIST_HPP
 # include <cstddef>
+#include<initializer_list>
 #include<iostream>
 // List . hpp
 template <typename T>
@@ -108,6 +109,15 @@ List (List const& list1) :  size_{0} , first_{nullptr} , last_{nullptr}
    {
        push_back(*i);
    }
+}
+List (List<T>&& list2) :
+   size_(list2.size()),
+   first_(list2.first_),
+   last_(list2.last_)
+{
+   list2.size_= 0;
+   list2.first_=nullptr;
+   list2.last_=nullptr;
 }
 bool empty () const 
 {
@@ -248,6 +258,17 @@ void reverse()
     node1 = temp;
     }
 }
+List<T>* operator =(List<T> list2)
+{
+    clear();
+   // return list2(this);
+
+   for(auto i = list2.begin(); i != list2.end(); ++i)
+   {
+       push_back(*i);
+   }
+   return this;
+}
  
 private:
 std::size_t size_;
@@ -288,6 +309,16 @@ List <T> reverse (List <T> const& xs)
     new_list.reverse();
     return new_list;
 }
+/*template<class InputIterator, class OutputIterator>
+  OutputIterator copy1 (InputIterator first, InputIterator last, OutputIterator result)
+{
+  while (first!=last) {
+    *result = *first;
+    ++result; ++first;
+  }
+  return result;
+} */
+
 
 #endif // # define BUW_LIST_HPP
 

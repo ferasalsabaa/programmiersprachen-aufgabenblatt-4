@@ -125,7 +125,7 @@ list.push_front(4);
 //List.insert(list_begin,);
 //REQUIRE (list==list2);
 }*/
-TEST_CASE ("insert","[insert]")
+TEST_CASE ("reverse","[reverse]")
 {
 List <int> list;
 list.push_front(1);
@@ -137,6 +137,53 @@ List <int> list2 = reverse(list);
 REQUIRE(1 == list.front());
 REQUIRE(4== list2.front());
 }
+TEST_CASE ("copy","[copy]")
+{
+List <int> list;
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+std::vector<int> myvector(list.size());
+
+std::copy(list.begin(),list.end(),myvector.begin());
+REQUIRE(4 == *myvector.begin());
+
+}
+
+TEST_CASE ("gleich_operator","[gleich_operator]")
+{
+List <int> list;
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+
+List <int> list2;
+list2.push_front(8);
+list2.push_front(9);
+list2.push_front(6);
+list2.push_front(3);
+
+list2 = list ;
+
+REQUIRE(4 == list2.front());
+//REQUIRE(4 == list2.front());
+
+}
+TEST_CASE ( " move constructor " , " [ constructor ] " )
+{
+List < int > list ;
+list.push_front (1);
+list.push_front (2);
+list.push_front (3);
+list.push_front (4);
+List <int> list2 = std::move(list);
+REQUIRE (0 == list.size());
+REQUIRE (list.empty());
+REQUIRE (4 == list2.size ());
+}
+
 
 
 int main(int argc, char *argv[])
