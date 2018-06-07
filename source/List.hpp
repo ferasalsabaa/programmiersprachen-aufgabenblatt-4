@@ -212,13 +212,43 @@ iterator end() const
    return ListIterator<T>();
 }
 //4.9
-//void insert(int position,ListNode n_node)
-//{
-  // for(auto i.begin())
-//}
+void insert(ListIterator<T> position, T const& object)
+{
+    if(position.getnode()->prev==nullptr)
+    {
+        push_front(object);
+    }
+   else
+{
+  ListNode<T>* n_node = new ListNode<T> {object, position.getnode()->prev,position.getnode()} ;
+  position.getnode()->prev->next = n_node;
+  position.getnode()->prev=n_node;
+}
+  ++size_;
+}
+//4.10
+void reverse()
+{
+    ListNode<T>* node1= new ListNode <T>;
+    ListNode<T>* temp= new ListNode <T>;
+    node1 = first_;
+    //if (!node1)
+     //   return;
+    while(node1 !=nullptr)
+    {
+    temp = node1->next;
+    node1->next = node1->prev;
+    node1->prev = temp;
+        if(temp == nullptr)
+        {
+            last_ = first_;
+            first_ = node1;
 
-// not implemented yet
-// do not forget about the initialiser list !
+        }
+    node1 = temp;
+    }
+}
+ 
 private:
 std::size_t size_;
 ListNode <T>* first_;
@@ -247,32 +277,18 @@ bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode muss
      return result;
 }
 template <typename T>
-bool operator !=( List <T > const& xs , List <T > const& ys )
+bool operator !=( List <T> const& xs , List <T> const& ys )
 {
     return !(xs==ys);
-   /*  bool result=true;
-    if (xs.size()==ys.size())
-    {
-      auto x = xs.begin();
-      auto y = ys.begin();
-      for(unsigned int i=0;i<xs.size();i++)
-      {
-        if(*x==*y)
-        {
-            result = false;
-            break;
-        }
-        ++x;
-        ++y;
-      }
-    }
-    else
-    {
-        result=true;
-    }
-    return result; 
-    */
 }
+template <typename T>
+List <T> reverse (List <T> const& xs)
+{
+    List<T> new_list(xs);
+    new_list.reverse();
+    return new_list;
+}
+
 #endif // # define BUW_LIST_HPP
 
 

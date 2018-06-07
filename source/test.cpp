@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include <vector>
-
 //4.2
 TEST_CASE("testing_list", "[list]")
 {
@@ -114,6 +113,31 @@ auto list_begin = list.begin();
 REQUIRE (0 == (*list_begin).size() );
 REQUIRE (0 == list_begin->size() );
 }
+// 4.8 
+//TEST_CASE ("insert","[insert]")
+/*{
+List <int> list;
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+//auto list_begin = list.begin();
+//List.insert(list_begin,);
+//REQUIRE (list==list2);
+}*/
+TEST_CASE ("insert","[insert]")
+{
+List <int> list;
+list.push_front(1);
+list.push_front(2);
+list.push_front(3);
+list.push_front(4);
+list.reverse();
+List <int> list2 = reverse(list);
+REQUIRE(1 == list.front());
+REQUIRE(4== list2.front());
+}
+
 
 int main(int argc, char *argv[])
 { 
