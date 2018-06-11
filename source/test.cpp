@@ -185,6 +185,18 @@ REQUIRE (list.empty());
 REQUIRE (4 == list2.size ());
 }
 
+
+//4.14
+
+TEST_CASE ( "14" , " [ 14 ] " )
+{
+ List <int> int_list{9,6,4,3,7};
+ List <int> int_list1{2,66,77,33,2};
+ List <int> result = int_list + int_list1 ;
+ REQUIRE (2 == result.front());
+ REQUIRE (7 == result.back());
+}
+
 TEST_CASE ( " init_list_constructor " , " [ init_list_constructor ] " )
 {
    List <int> int_list{9,6,4,3,7};

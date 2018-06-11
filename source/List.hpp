@@ -228,7 +228,7 @@ iterator end() const
 {
    return ListIterator<T>();
 }
-//4.9
+//4.9 ..
 void insert(ListIterator<T> position, T const& object)
 {
     if(position.getnode()->prev==nullptr)
@@ -276,6 +276,7 @@ List<T>* operator =(List<T> list2)
    }
    return this;
 }
+
  
 private:
 std::size_t size_;
@@ -316,6 +317,20 @@ List <T> reverse (List <T> const& xs)
     new_list.reverse();
     return new_list;
 }
+
+//4.14
+template <typename T>
+List<T> operator + (List<T> const& list2 , List<T> const& list1)
+{
+   List<T> result (list1);
+   for(auto a:list2)
+   {
+       result.push_back(a);
+   }
+   return result;
+
+}
+
 /*template<class InputIterator, class OutputIterator>
   OutputIterator copy1 (InputIterator first, InputIterator last, OutputIterator result)
 {

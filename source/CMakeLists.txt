@@ -8,3 +8,8 @@ add_executable(test
   test.cpp
   List.hpp
   )
+
+# Build algo
+add_executable(algo
+  algo.cpp
+  )
