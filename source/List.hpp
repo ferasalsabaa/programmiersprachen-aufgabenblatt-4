@@ -296,7 +296,7 @@ bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode muss
             if(*x!=*y)
             {
                 result = false;
-                break; //..
+                break; //.....
             }
             ++x;
             ++y;
