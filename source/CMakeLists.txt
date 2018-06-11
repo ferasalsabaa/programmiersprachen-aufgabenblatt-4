@@ -9,7 +9,4 @@ add_executable(test
   List.hpp
   )
 
-# Build algo
-add_executable(algo
-  algo.cpp
-  )
+

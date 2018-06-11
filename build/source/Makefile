@@ -111,21 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-source/CMakeFiles/aufgabe1.dir/rule:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/aufgabe1.dir/rule
-.PHONY : source/CMakeFiles/aufgabe1.dir/rule
-
-# Convenience name for target.
-aufgabe1: source/CMakeFiles/aufgabe1.dir/rule
-
-.PHONY : aufgabe1
-
-# fast build rule for target.
-aufgabe1/fast:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f source/CMakeFiles/aufgabe1.dir/build.make source/CMakeFiles/aufgabe1.dir/build
-.PHONY : aufgabe1/fast
-
-# Convenience name for target.
 source/CMakeFiles/test.dir/rule:
 	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/test.dir/rule
 .PHONY : source/CMakeFiles/test.dir/rule
@@ -141,46 +126,19 @@ test/fast:
 .PHONY : test/fast
 
 # Convenience name for target.
-source/CMakeFiles/algo.dir/rule:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/algo.dir/rule
-.PHONY : source/CMakeFiles/algo.dir/rule
+source/CMakeFiles/aufgabe1.dir/rule:
+	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f CMakeFiles/Makefile2 source/CMakeFiles/aufgabe1.dir/rule
+.PHONY : source/CMakeFiles/aufgabe1.dir/rule
 
 # Convenience name for target.
-algo: source/CMakeFiles/algo.dir/rule
+aufgabe1: source/CMakeFiles/aufgabe1.dir/rule
 
-.PHONY : algo
+.PHONY : aufgabe1
 
 # fast build rule for target.
-algo/fast:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f source/CMakeFiles/algo.dir/build.make source/CMakeFiles/algo.dir/build
-.PHONY : algo/fast
-
-algo.o: algo.cpp.o
-
-.PHONY : algo.o
-
-# target to build an object file
-algo.cpp.o:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f source/CMakeFiles/algo.dir/build.make source/CMakeFiles/algo.dir/algo.cpp.o
-.PHONY : algo.cpp.o
-
-algo.i: algo.cpp.i
-
-.PHONY : algo.i
-
-# target to preprocess a source file
-algo.cpp.i:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f source/CMakeFiles/algo.dir/build.make source/CMakeFiles/algo.dir/algo.cpp.i
-.PHONY : algo.cpp.i
-
-algo.s: algo.cpp.s
-
-.PHONY : algo.s
-
-# target to generate assembly for a file
-algo.cpp.s:
-	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f source/CMakeFiles/algo.dir/build.make source/CMakeFiles/algo.dir/algo.cpp.s
-.PHONY : algo.cpp.s
+aufgabe1/fast:
+	cd /home/feras/programmiersprachen-aufgabenblatt-4/build && $(MAKE) -f source/CMakeFiles/aufgabe1.dir/build.make source/CMakeFiles/aufgabe1.dir/build
+.PHONY : aufgabe1/fast
 
 aufgabe1.o: aufgabe1.cpp.o
 
@@ -243,13 +201,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... aufgabe1"
-	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... algo"
-	@echo "... algo.o"
-	@echo "... algo.i"
-	@echo "... algo.s"
+	@echo "... edit_cache"
+	@echo "... aufgabe1"
 	@echo "... aufgabe1.o"
 	@echo "... aufgabe1.i"
 	@echo "... aufgabe1.s"

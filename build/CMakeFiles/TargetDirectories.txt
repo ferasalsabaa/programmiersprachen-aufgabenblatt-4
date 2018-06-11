@@ -7,7 +7,6 @@
 /home/feras/programmiersprachen-aufgabenblatt-4/build/external/glfw-3.2.1/src/CMakeFiles/edit_cache.dir
 /home/feras/programmiersprachen-aufgabenblatt-4/build/external/glfw-3.2.1/src/CMakeFiles/glfw.dir
 /home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/rebuild_cache.dir
-/home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/aufgabe1.dir
-/home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/edit_cache.dir
 /home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/test.dir
-/home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/algo.dir
+/home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/edit_cache.dir
+/home/feras/programmiersprachen-aufgabenblatt-4/build/source/CMakeFiles/aufgabe1.dir
