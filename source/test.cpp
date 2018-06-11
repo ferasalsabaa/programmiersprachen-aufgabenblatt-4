@@ -13,14 +13,14 @@ TEST_CASE("testing_list", "[list]")
  REQUIRE(l1.size() == 0);
 
 }
-//4.3 push_front ..
+//4.3 push_front
 TEST_CASE ( "add an element with push_front" , "[ modifiers ]" )
 {
 List <int> list ;
 list.push_front(42);
 REQUIRE(42 == list.front());
 }
-//4.3 push_back ..
+//4.3 push_back
 TEST_CASE ( "add an element with push_back" , "[back]" )
 {
 List <int> list;
@@ -93,7 +93,7 @@ list2.push_front(2);
 REQUIRE (list==list2);
 //REQUIRE (list!=list2);
 }
-
+//4.8
 TEST_CASE ("copyconstructor","[constructor]")
 {
 List <int> list ;
@@ -114,18 +114,7 @@ auto list_begin = list.begin();
 REQUIRE (0 == (*list_begin).size() );
 REQUIRE (0 == list_begin->size() );
 }
-// 4.8 
-//TEST_CASE ("insert","[insert]")
-/*{
-List <int> list;
-list.push_front(1);
-list.push_front(2);
-list.push_front(3);
-list.push_front(4);
-//auto list_begin = list.begin();
-//List.insert(list_begin,);
-//REQUIRE (list==list2);
-}*/
+//4.10
 TEST_CASE ("reverse","[reverse]")
 {
 List <int> list;
@@ -138,6 +127,7 @@ List <int> list2 = reverse(list);
 REQUIRE(1 == list.front());
 REQUIRE(4== list2.front());
 }
+//4.11
 TEST_CASE ("copy","[copy]")
 {
 List <int> list;
@@ -151,7 +141,7 @@ std::copy(list.begin(),list.end(),myvector.begin());
 REQUIRE(4 == *myvector.begin());
 
 }
-
+//4.12
 TEST_CASE ("gleich_operator","[gleich_operator]")
 {
 List <int> list;
@@ -172,6 +162,7 @@ REQUIRE(4 == list2.front());
 //REQUIRE(4 == list2.front());
 
 }
+//4.13
 TEST_CASE ( " move constructor " , " [ constructor ] " )
 {
 List < int > list ;
@@ -195,6 +186,7 @@ TEST_CASE ( "14" , " [ 14 ] " )
  List <int> result = int_list + int_list1 ;
  REQUIRE (2 == result.front());
  REQUIRE (7 == result.back());
+ 
 }
 
 TEST_CASE ( " init_list_constructor " , " [ init_list_constructor ] " )

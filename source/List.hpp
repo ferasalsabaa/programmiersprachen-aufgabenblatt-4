@@ -23,7 +23,7 @@ using pointer = T*;
 using reference = T&;
 using difference_type = ptrdiff_t;
 using iterator_category = std::bidirectional_iterator_tag;
-
+//4.5
 ListIterator() : node{nullptr}
 {}         // not implemented yet ; initialisierlist ?
 ListIterator (ListNode <T>* n) : node{n}
@@ -99,10 +99,12 @@ using const_iterator  = ListConstIterator <T>;
 
 List() :  size_{0} , first_{nullptr} , last_{nullptr}
 {}
+//4.4
 ~List()
 {
     clear();
 }
+//4.8
 List (List const& list1) :  size_{0} , first_{nullptr} , last_{nullptr}
 {
    for(auto i = list1.begin(); i != list1.end(); ++i)
@@ -110,6 +112,7 @@ List (List const& list1) :  size_{0} , first_{nullptr} , last_{nullptr}
        push_back(*i);
    }
 }
+//4.13
 List (List<T>&& list2) :
    size_(list2.size()),
    first_(list2.first_),
@@ -126,6 +129,7 @@ List (std::initializer_list<T> const& inlist) :  size_{0} , first_{nullptr} , la
        push_back(a);
    }
 }
+//4.2
 bool empty () const 
 {
   return size_==0;
@@ -134,6 +138,7 @@ std :: size_t size () const
 {
     return size_;
 }
+//4.3
 void push_front (T const& wert)
 {
     ListNode <T>* n_node = new ListNode<T>{wert,nullptr,nullptr};
@@ -228,7 +233,7 @@ iterator end() const
 {
    return ListIterator<T>();
 }
-//4.9 ..
+//4.9
 void insert(ListIterator<T> position, T const& object)
 {
     if(position.getnode()->prev==nullptr)
@@ -265,6 +270,7 @@ void reverse()
     node1 = temp;
     }
 }
+//4.12
 List<T>* operator =(List<T> list2)
 {
     clear();
@@ -283,7 +289,7 @@ std::size_t size_;
 ListNode <T>* first_;
 ListNode <T>* last_;
 };
-
+//4.7
 template <typename T>
 bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode mussen .. 
 {    bool result=true;
@@ -296,7 +302,7 @@ bool operator ==( List <T> const& xs , List <T> const& ys ) //const methode muss
             if(*x!=*y)
             {
                 result = false;
-                break; //.....
+                break; 
             }
             ++x;
             ++y;
@@ -310,6 +316,7 @@ bool operator !=( List <T> const& xs , List <T> const& ys )
 {
     return !(xs==ys);
 }
+
 template <typename T>
 List <T> reverse (List <T> const& xs)
 {
